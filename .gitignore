@@ -1,0 +1,7 @@
+﻿.idea
+.svn
+.sass-cache
+*.iml
+*.zip
+
+/node_modules/*
