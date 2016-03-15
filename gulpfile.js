@@ -5,20 +5,17 @@
  * @author sheny@made-in-china.com
  */
 
-var gulp = require('gulp');
-var closure = require('gulp-closure-compiler-service');
+var gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    jshint = require('gulp-jshint');
 
-gulp.task('default', function() {
-    // todo something
-});
-
-gulp.task('compile', function() {
+gulp.task('compress', function() {
     return gulp.src('src/*.js')
-        .pipe(closure())
+        //.pipe(jshint())
+        //.pipe(jshint.reporter('default'))
+        .pipe(uglify())
+        .pipe(concat('jMend.js'))
         .pipe(gulp.dest('dist'));
 });
 
-.pipe(closure({
-    language: 'ECMASCRIPT5',
-    compilation_level: 'WHITESPACE_ONLY'
-}))
